@@ -5,7 +5,7 @@
     "minimum-stability":"dev-master",
 
     "require": {
-        "curl/curl": "1.9.3"
+        "curl/curl": "dev-master"
     },
     
     "autoload": {
