@@ -32,3 +32,12 @@ In the console
 -
 `composer require soc/openam-module`
 
+In a controller
+- 
+```
+use SoC\OpenAM\OpenAM;
+```
+and 
+```
+$o = new OpenAM();
+```
