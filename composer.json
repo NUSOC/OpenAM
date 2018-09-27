@@ -4,6 +4,6 @@
     "type": "library",
     "minimum-stability": "dev",
     "require": {
-        "curl/curl": "dev-master"
+        "curl/curl": "1.9.*"
     }
 }
