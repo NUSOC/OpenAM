@@ -2,6 +2,7 @@
     "name": "soc/openam-module",
     "description": "Custom OpenAM module",
     "type": "library",
+    "minimum-stability":"dev",
 
     "require": {
         "curl/curl": "1.9.*"
