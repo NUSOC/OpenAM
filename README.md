@@ -45,7 +45,7 @@ $o = new OpenAM();
 
 What this component does not do:
 -
-Because I'm trying to keep this small
+Because I'm trying to keep this small and not every project needs a database. Configuration is done completely through the `.env ` file. 
 
 - It does not connect to symfony's authentication system. 
 - It does not contain various roles. Rather, it's a list of netids that are allowed in. 
