@@ -32,7 +32,7 @@ In the console
 -
 `composer require soc/openam-module`
 
-In a controller
+In a controller or an Event Subscriber that fires before the controllers. 
 - 
 ```
 use SoC\OpenAM\OpenAM;
@@ -41,3 +41,15 @@ and
 ```
 $o = new OpenAM();
 ```
+
+
+What this component does not do:
+-
+Because I'm trying to keep this small
+
+- It does not connect to symfony's authentication system. 
+- It does not contain various roles. Rather, it's a list of netids that are allowed in. 
+- It does not save any user into a database. 
+
+ 
+
