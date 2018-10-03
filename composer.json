@@ -2,7 +2,7 @@
     "name": "soc/openam-module",
     "description": "Custom OpenAM module",
     "type": "library",
-    "minimum-stability":"dev-master",
+
 
     "require": {
         "curl/curl": "dev-master"
