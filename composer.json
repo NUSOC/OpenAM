@@ -5,7 +5,7 @@
 
 
     "require": {
-        "curl/curl": "dev-master"
+        "curl/curl": "1.9.3"
     },
     
     "autoload": {
