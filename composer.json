@@ -2,7 +2,6 @@
     "name": "soc/openam-module",
     "description": "Custom OpenAM module",
     "type": "library",
-    "minimum-stability":"stable",
 
 
     "require": {
