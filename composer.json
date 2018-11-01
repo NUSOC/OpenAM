@@ -3,6 +3,7 @@
     "description": "Custom OpenAM module",
     "type": "library",
     "version":"1.0.1",
+    "minimum-stability": "stable",
  
 
 
