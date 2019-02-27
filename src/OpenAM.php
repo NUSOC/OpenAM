@@ -17,7 +17,7 @@ class OpenAM
     private $token;
     
     private $OPENAM_SESSION_COOKIE;
-    private $PENAM_SESSION_COOKIE;
+    private $OPENAM_SESSION_COOKIE;
     private $OPENAM_BASE_URL;
     private $OPENAM_URL_VALIDATE;
     private $OPENAM_URL_GETDEETS;
