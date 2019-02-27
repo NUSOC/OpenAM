@@ -49,7 +49,7 @@ $o = new \SoC\OpenAM\OpenAM(
     env('OPENAM_ALLOWED_NETIDS')
 );
 ```
-
+_Use getenv(), env(), or a hard coded string as needed._ 
 
 What this component does not do:
 -
