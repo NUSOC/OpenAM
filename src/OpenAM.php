@@ -216,7 +216,7 @@ class OpenAM
         $whoami = trim(strtolower($this->getNetID()));
 
         // is netid in the list.
-        return in_array($whoami, explode(',', $this->OPENAM_ALLOWED_NETIDS)));
+        return in_array($whoami, explode(',', $this->OPENAM_ALLOWED_NETIDS));
     }
 
     public function getNetID()
