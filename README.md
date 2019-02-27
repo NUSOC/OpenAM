@@ -39,7 +39,15 @@ use SoC\OpenAM\OpenAM;
 ```
 and 
 ```
-$o = new OpenAM();
+$o = new \SoC\OpenAM\OpenAM(
+    env('OPENAM_SESSION_COOKIE'),
+    env('OPENAM_BASE_URL'),
+    env('OPENAM_URL_VALIDATE'),
+    env('OPENAM_URL_GETDEETS'),
+    env('OPENAM_URL_LOGIN'),
+    env('OPENAM_URL_REUTRN'),
+    env('OPENAM_ALLOWED_NETIDS')
+);
 ```
 
 
