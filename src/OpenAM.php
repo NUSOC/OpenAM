@@ -15,11 +15,39 @@ class OpenAM
 
     private $details;
     private $token;
+    
+    private $OPENAM_SESSION_COOKIE;
+    private $PENAM_SESSION_COOKIE;
+    private $OPENAM_BASE_URL;
+    private $OPENAM_URL_VALIDATE;
+    private $OPENAM_URL_GETDEETS;
+    private $OPENAM_URL_LOGIN;
+    private $OPENAM_URL_REUTRN;
+    private $OPENAM_ALLOWED_NETIDS;
 
 
-    public function __construct()
+    public function __construct(
+        $OPENAM_SESSION_COOKIE,
+        $OPENAM_BASE_URL,
+        $OPENAM_URL_VALIDATE,
+        $OPENAM_URL_GETDEETS,
+        $OPENAM_URL_LOGIN,
+        $OPENAM_URL_REUTRN,
+        $OPENAM_ALLOWED_NETIDS
+       
+    )
     {
 
+        // Load values
+        $this->OPENAM_SESSION_COOKIE = $OPENAM_SESSION_COOKIE;
+        $this->OPENAM_BASE_URL = $OPENAM_BASE_URL;
+        $this->OPENAM_URL_VALIDATE = $OPENAM_URL_VALIDATE;
+        $this->OPENAM_URL_GETDEETS = $OPENAM_URL_GETDEETS;
+        $this->OPENAM_URL_LOGIN = $OPENAM_URL_LOGIN;
+        $this->OPENAM_URL_REUTRN = $OPENAM_URL_REUTRN;
+        $this->OPENAM_ALLOWED_NETIDS = $OPENAM_ALLOWED_NETIDS;
+        
+        
         // get token from cookie
         $this->token = $this->getTokenFromCookie();
 
@@ -48,7 +76,7 @@ class OpenAM
     {
 
         // return false if not set
-        $cookie_token_key = getenv('OPENAM_SESSION_COOKIE');
+        $cookie_token_key = $this->OPENAM_SESSION_COOKIE;
         if (!isset($_COOKIE[$cookie_token_key])) {
             return false;
         } else {
@@ -71,7 +99,7 @@ class OpenAM
             die($e->getMessage() . $e->getFile());
         }
 
-        $curl->get(getenv('OPENAM_URL_VALIDATE') . $this->token);
+        $curl->get($this->OPENAM_URL_VALIDATE . $this->token);
 
         if ($curl->error) {
             die($curl->errorMessage);
@@ -91,7 +119,7 @@ class OpenAM
         // If invalid, let's go ahead and throw the cookie away forcing it to go back
         // to OpenAM
         else {
-            setcookie(getenv('OPENAM_SESSION_COOKIE'), "", time() - 1);
+            setcookie($this->OPENAM_SESSION_COOKIE, "", time() - 1);
             return FALSE;
         }
     }
@@ -99,7 +127,7 @@ class OpenAM
     public function redirectIfInvalid()
     {
         if ($this->isTokenValid() != true) {
-            header('Location: ' . getenv('OPENAM_URL_LOGIN') . getenv('OPENAM_URL_REUTRN'));
+            header('Location: ' . $this->OPENAM_URL_LOGIN . $this->OPENAM_URL_REUTRN;
 
         }
     }
@@ -124,7 +152,7 @@ class OpenAM
         } catch (\ErrorException $e) {
             die($e->getMessage());
         }
-        $curl->get(getenv('OPENAM_URL_GETDEETS') . $this->token);
+        $curl->get($this->OPENAM_URL_GETDEETS . $this->token);
         $response = $curl->response;
 
 
@@ -189,7 +217,7 @@ class OpenAM
         $whoami = trim(strtolower($this->getNetID()));
 
         // is netid in the list.
-        return in_array($whoami, explode(',', getenv('OPENAM_ALLOWED_NETIDS')));
+        return in_array($whoami, explode(',', $this->OPENAM_ALLOWED_NETIDS')));
     }
 
     public function getNetID()
