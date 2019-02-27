@@ -127,8 +127,7 @@ class OpenAM
     public function redirectIfInvalid()
     {
         if ($this->isTokenValid() != true) {
-            header('Location: ' . $this->OPENAM_URL_LOGIN . $this->OPENAM_URL_REUTRN;
-
+            header('Location: ' . $this->OPENAM_URL_LOGIN . $this->OPENAM_URL_REUTRN);
         }
     }
 
