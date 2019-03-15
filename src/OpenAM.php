@@ -224,7 +224,7 @@ class OpenAM
             return $this->details->uid;
         }
         else {
-            die("Error in __FILE__ at __LINE__. Please refer this error to SoCIT");
+            die("Error in " . __FILE__ . " at " . __LINE__ . "Please refer this error to SoCIT");
         }
 
     }
